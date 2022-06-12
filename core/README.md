@@ -7,7 +7,11 @@ sample description
 
 ### Fetch the package
 `kpt pkg get REPO_URI[.git]/PKG_PATH[@VERSION] core`
+
+```
 kpt pkg get https://github.com/yndd/blueprint/core@v0.0.2
+```
+
 Details: https://kpt.dev/reference/cli/pkg/get/
 
 ### View package content
