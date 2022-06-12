@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: ndd-core-leader-election-rolebinding
+  namespace: ndd-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ndd-leader-election-role
+subjects:
+- kind: ServiceAccount
+  name: ndd-core
+  namespace: ndd-system
