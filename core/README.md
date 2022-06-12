@@ -7,6 +7,7 @@ sample description
 
 ### Fetch the package
 `kpt pkg get REPO_URI[.git]/PKG_PATH[@VERSION] core`
+kpt pkg get https://github.com/yndd/blueprint/core@v0.0.2
 Details: https://kpt.dev/reference/cli/pkg/get/
 
 ### View package content
@@ -20,7 +21,7 @@ If you want to change the image names add these additional files
 REGSITRY=<new registry>
 
 ```
-cat <<EOF >> TransformConfigmapCore.yaml
+cat <<EOF >> core/TransformConfigmapCore.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -33,7 +34,7 @@ EOF
 ```
 
 ```
-cat <<EOF >> TransformConfigmapRbac.yaml
+cat <<EOF >> core/TransformConfigmapRbac.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -45,6 +46,11 @@ data:
 EOF
 ```
 
+Afterwards render the output
+
+```
+kpt fn render core
+```
 ### Apply the package
 ```
 kpt live init core
